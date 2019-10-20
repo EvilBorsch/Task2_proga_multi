@@ -1,0 +1,46 @@
+dist:     trusty    
+sudo:     required  
+
+language: c         
+                    
+os:    
+    - linux
+    - osx
+    
+compiler:
+    - gcc
+    - clang
+    
+addons:
+  apt:
+    packages:
+      - valgrind
+      - cppcheck
+      - make
+      - cmake
+
+
+
+matrix:
+    exclude:
+        # вручную исключим ненужные элементы из матрицы сборки:
+        - os:       osx
+          compiler: gcc
+
+
+script:
+    # скрипт сборки и тестирования проекта:
+    - ls
+    - gcc -std=c11 -c ./source/*.c
+    - ar r libstatic.a *.o
+    - rm *.o
+    - ls
+    - gcc -std=c11 -c *.c
+    - gcc -o zadanie_2_multithread_proga *.o -L. -lstatic
+    - ./zadanie_2_multithread_proga
+    - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then valgrind --error-exitcode=1 --leak-check=full --show-leak-kinds=all ./zadanie_2_multithread_proga ; fi
+    - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then cppcheck --error-exitcode=1 --enable=warning,performance,information,style *.c *.h ; fi
+    - mkdir build
+    - cd build
+    - cmake .. -DCMAKE_BUILD_TYPE=$BUILD_CONFIGURATION
+    - cmake --build .
