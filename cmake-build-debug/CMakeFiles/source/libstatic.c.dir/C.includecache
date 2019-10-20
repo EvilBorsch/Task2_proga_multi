@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/dmitrijgulacenkov/CLionProjects/zadanie_2_multithread_proga/libstatic.h
+
+/Users/dmitrijgulacenkov/CLionProjects/zadanie_2_multithread_proga/main.c
+stdio.h
+-
+libstatic.h
+/Users/dmitrijgulacenkov/CLionProjects/zadanie_2_multithread_proga/libstatic.h
+assert.h
+-
+
