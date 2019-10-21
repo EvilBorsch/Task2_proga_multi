@@ -35,10 +35,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = "/Users/dmitrijgulacenkov/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/192.6817.32/CLion.app/Contents/bin/cmake/mac/bin/cmake"
+CMAKE_COMMAND = /Users/dmitrijgulacenkov/Desktop/CLion.app/Contents/bin/cmake/mac/bin/cmake
 
 # The command to remove a file.
-RM = "/Users/dmitrijgulacenkov/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/192.6817.32/CLion.app/Contents/bin/cmake/mac/bin/cmake" -E remove -f
+RM = /Users/dmitrijgulacenkov/Desktop/CLion.app/Contents/bin/cmake/mac/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -74,12 +74,12 @@ preinstall:
 CMakeFiles/zadanie_2_multithread_proga.dir/all:
 	$(MAKE) -f CMakeFiles/zadanie_2_multithread_proga.dir/build.make CMakeFiles/zadanie_2_multithread_proga.dir/depend
 	$(MAKE) -f CMakeFiles/zadanie_2_multithread_proga.dir/build.make CMakeFiles/zadanie_2_multithread_proga.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/dmitrijgulacenkov/CLionProjects/zadanie_2_multithread_proga/cmake-build-debug/CMakeFiles --progress-num=1,2,3 "Built target zadanie_2_multithread_proga"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/dmitrijgulacenkov/CLionProjects/zadanie_2_multithread_proga/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4 "Built target zadanie_2_multithread_proga"
 .PHONY : CMakeFiles/zadanie_2_multithread_proga.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/zadanie_2_multithread_proga.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/dmitrijgulacenkov/CLionProjects/zadanie_2_multithread_proga/cmake-build-debug/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/dmitrijgulacenkov/CLionProjects/zadanie_2_multithread_proga/cmake-build-debug/CMakeFiles 4
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/zadanie_2_multithread_proga.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/dmitrijgulacenkov/CLionProjects/zadanie_2_multithread_proga/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/zadanie_2_multithread_proga.dir/rule

@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/zadanie_2_multithread_proga.dir/main.c.o"
+  "CMakeFiles/zadanie_2_multithread_proga.dir/source/libdynamic.c.o"
   "CMakeFiles/zadanie_2_multithread_proga.dir/source/libstatic.c.o"
   "zadanie_2_multithread_proga"
   "zadanie_2_multithread_proga.pdb"

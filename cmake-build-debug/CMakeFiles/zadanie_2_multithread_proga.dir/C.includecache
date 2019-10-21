@@ -6,6 +6,8 @@
 
 #IncludeRegexTransform: 
 
+/Users/dmitrijgulacenkov/CLionProjects/zadanie_2_multithread_proga/libdynamic.h
+
 /Users/dmitrijgulacenkov/CLionProjects/zadanie_2_multithread_proga/libstatic.h
 
 /Users/dmitrijgulacenkov/CLionProjects/zadanie_2_multithread_proga/main.c
@@ -15,14 +17,6 @@ libstatic.h
 /Users/dmitrijgulacenkov/CLionProjects/zadanie_2_multithread_proga/libstatic.h
 assert.h
 -
-
-/Users/dmitrijgulacenkov/CLionProjects/zadanie_2_multithread_proga/source/libstatic.c
-stdio.h
--
-stdlib.h
--
-assert.h
--
-../libstatic.h
-/Users/dmitrijgulacenkov/CLionProjects/zadanie_2_multithread_proga/libstatic.h
+libdynamic.h
+/Users/dmitrijgulacenkov/CLionProjects/zadanie_2_multithread_proga/libdynamic.h
 

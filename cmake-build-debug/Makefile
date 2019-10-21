@@ -39,10 +39,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = "/Users/dmitrijgulacenkov/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/192.6817.32/CLion.app/Contents/bin/cmake/mac/bin/cmake"
+CMAKE_COMMAND = /Users/dmitrijgulacenkov/Desktop/CLion.app/Contents/bin/cmake/mac/bin/cmake
 
 # The command to remove a file.
-RM = "/Users/dmitrijgulacenkov/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/192.6817.32/CLion.app/Contents/bin/cmake/mac/bin/cmake" -E remove -f
+RM = /Users/dmitrijgulacenkov/Desktop/CLion.app/Contents/bin/cmake/mac/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -59,7 +59,7 @@ CMAKE_BINARY_DIR = /Users/dmitrijgulacenkov/CLionProjects/zadanie_2_multithread_
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	"/Users/dmitrijgulacenkov/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/192.6817.32/CLion.app/Contents/bin/cmake/mac/bin/cmake" -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/Users/dmitrijgulacenkov/Desktop/CLion.app/Contents/bin/cmake/mac/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -70,7 +70,7 @@ rebuild_cache/fast: rebuild_cache
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	"/Users/dmitrijgulacenkov/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/192.6817.32/CLion.app/Contents/bin/cmake/mac/bin/cmake" -E echo No\ interactive\ CMake\ dialog\ available.
+	/Users/dmitrijgulacenkov/Desktop/CLion.app/Contents/bin/cmake/mac/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -150,6 +150,33 @@ main.c.s:
 	$(MAKE) -f CMakeFiles/zadanie_2_multithread_proga.dir/build.make CMakeFiles/zadanie_2_multithread_proga.dir/main.c.s
 .PHONY : main.c.s
 
+source/libdynamic.o: source/libdynamic.c.o
+
+.PHONY : source/libdynamic.o
+
+# target to build an object file
+source/libdynamic.c.o:
+	$(MAKE) -f CMakeFiles/zadanie_2_multithread_proga.dir/build.make CMakeFiles/zadanie_2_multithread_proga.dir/source/libdynamic.c.o
+.PHONY : source/libdynamic.c.o
+
+source/libdynamic.i: source/libdynamic.c.i
+
+.PHONY : source/libdynamic.i
+
+# target to preprocess a source file
+source/libdynamic.c.i:
+	$(MAKE) -f CMakeFiles/zadanie_2_multithread_proga.dir/build.make CMakeFiles/zadanie_2_multithread_proga.dir/source/libdynamic.c.i
+.PHONY : source/libdynamic.c.i
+
+source/libdynamic.s: source/libdynamic.c.s
+
+.PHONY : source/libdynamic.s
+
+# target to generate assembly for a file
+source/libdynamic.c.s:
+	$(MAKE) -f CMakeFiles/zadanie_2_multithread_proga.dir/build.make CMakeFiles/zadanie_2_multithread_proga.dir/source/libdynamic.c.s
+.PHONY : source/libdynamic.c.s
+
 source/libstatic.o: source/libstatic.c.o
 
 .PHONY : source/libstatic.o
@@ -189,6 +216,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... source/libdynamic.o"
+	@echo "... source/libdynamic.i"
+	@echo "... source/libdynamic.s"
 	@echo "... source/libstatic.o"
 	@echo "... source/libstatic.i"
 	@echo "... source/libstatic.s"
