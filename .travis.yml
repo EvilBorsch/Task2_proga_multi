@@ -30,17 +30,12 @@ matrix:
 
 script:
     # скрипт сборки и тестирования проекта:
-    - ls
     - gcc -std=c11 -c ./source/*.c
     - ar r libstatic.a *.o
-    - rm *.o
-    - ls
+    - gcc -std=c11 -c -fPIC source/*.c
+    - gcc -shared -o libdynamic.so *.o
     - gcc -std=c11 -c *.c
-    - gcc -o zadanie_2_multithread_proga *.o -L. -lstatic
+    - gcc -o zadanie_2_multithread_proga *.o -L. -ldynamic -lstatic -lpthread -Wl,-rpath,.
     - ./zadanie_2_multithread_proga
-    - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then valgrind --error-exitcode=1 --leak-check=full --show-leak-kinds=all ./zadanie_2_multithread_proga ; fi
+    - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then valgrind --leak-check=full --show-leak-kinds=all ./zadanie_2_multithread_proga ; fi
     - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then cppcheck --error-exitcode=1 --enable=warning,performance,information,style *.c *.h ; fi
-    - mkdir build
-    - cd build
-    - cmake .. -DCMAKE_BUILD_TYPE=$BUILD_CONFIGURATION
-    - cmake --build .
