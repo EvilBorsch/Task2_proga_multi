@@ -1,9 +1,6 @@
-//
-// Created by Дмитрий Гуляченков on 21.10.2019.
-//
-
+#include <stdio.h>
 
 
 void *summ_last_elements(void *stroki);
 
-long int find_sigma_diagonals(char **matrix1, int N);
+long int find_sigma_diagonals(char **matrix1, size_t N);
