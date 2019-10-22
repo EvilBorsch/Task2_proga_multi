@@ -1,4 +1,4 @@
-//Copyright 2019 EvilBorsch
+// Copyright 2019 EvilBorsch
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
@@ -16,13 +16,18 @@ char **init_matrix_from_keyboard(size_t n) {
 
   for (size_t i = 0; i < n; i++) {
     mat[i] = (char *)malloc(sizeof(char) * (k + 1));
+    if (mat[i] == NULL) {
+      perror("MEMMORY ERROR");
+      free(mat[i]);
+      return NULL;
+    }
+
     assert(mat[i] != NULL);
     for (size_t j = 0; j <= k; j++) {
       char chis;
       scanf("%d", &chis);
       if (chis < 0 || chis > 3) {
         perror("BAD NUM");
-        free(mat);
         return NULL;
       }
       mat[i][j] = chis;
@@ -34,11 +39,19 @@ char **init_matrix_from_keyboard(size_t n) {
 
 char **init_with_num(size_t n, char num) {
   char **mat = (char **)malloc(n * sizeof(char *));
-  assert(mat != NULL);
+  if (mat == NULL) {
+    perror("MEMMORY ERROR");
+    free(mat);
+    return NULL;
+  }
   size_t k = 0;
   for (size_t i = 0; i < n; i++) {
     mat[i] = (char *)malloc(sizeof(char) * (k + 1));
-    assert(mat[i] != NULL);
+    if (mat[i] == NULL) {
+      perror("MEMMORY ERROR");
+      free(mat[i]);
+      return NULL;
+    }
     for (size_t j = 0; j <= k; j++) {
       mat[i][j] = num;
     }
