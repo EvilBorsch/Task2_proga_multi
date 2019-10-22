@@ -4,7 +4,7 @@
 #include <assert.h>
 #include "libstatic.h"
 
-char **init_matrix_from_keyboard(size_t n) {
+char **init_matrix_from_keyboard(const size_t n) {
   char **mat = (char **)malloc(n * sizeof(char *));
   if (mat == NULL) {
     perror("MEMORY ERROR");
@@ -37,7 +37,7 @@ char **init_matrix_from_keyboard(size_t n) {
   return mat;
 }
 
-char **init_with_num(size_t n, char num) {
+char **init_with_num(const size_t n, const char num) {
   char **mat = (char **)malloc(n * sizeof(char *));
   if (mat == NULL) {
     perror("MEMMORY ERROR");
@@ -60,7 +60,7 @@ char **init_with_num(size_t n, char num) {
   return mat;
 }
 
-void print_mat(char **mat, size_t n) {
+void print_mat(const char **mat, const size_t n) {
   size_t k = 0;
   for (size_t i = 0; i < n; i++) {
     for (size_t j = 0; j <= k; j++) {
@@ -71,14 +71,14 @@ void print_mat(char **mat, size_t n) {
   }
 }
 
-void del_mat(char **mat, size_t n) {
+void del_mat(char **mat, const size_t n) {
   for (size_t i = 0; i < n; i++) {
     free(mat[i]);
   }
   free(mat);
 }
 
-int get_sigma_diagonal(char **mat, size_t n) {
+int get_sigma_diagonal(const char **mat, const size_t n) {
   size_t sigma = 0;
   for (size_t i = 0; i < n; i++) {
     sigma += (mat[i][i]);
