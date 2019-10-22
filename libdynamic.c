@@ -8,16 +8,15 @@
 #define MEMORY_ERROR 28;
 
 typedef struct {
-  int rowSize;  //размер строки
+  int rowSize;
   int started_str;
   int num_of_strs;
   char **matrix;
 } pthrData;
 
-static long int result = 0;
+static int16_t result = 0;
 
 void *summ_last_elements(void *stroki) {
-  //получаем структуру с данными
   pthrData *data = (pthrData *)stroki;
   if (data == NULL) {
     free(data);
@@ -36,7 +35,7 @@ void *summ_last_elements(void *stroki) {
   return NULL;
 }
 
-long int find_sigma_diagonals(char **matrix1, int N) {
+long int find_sigma_diagonals(char **matrix1, size_t N) {
   if (matrix1 == NULL || N < 0) {
     perror("MEMMORY_ERROR");
     return MEMORY_ERROR;
@@ -83,7 +82,7 @@ long int find_sigma_diagonals(char **matrix1, int N) {
   for (int i = 0; i < num_threads; i++) pthread_join(threads[i], NULL);
   free(threads);
   free(threadData);
-  long int answer = result;
+  int16_t answer = result;
   result = 0;
   return answer;
 }
