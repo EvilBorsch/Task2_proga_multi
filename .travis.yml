@@ -30,9 +30,9 @@ matrix:
 
 script:
     # скрипт сборки и тестирования проекта:
-    - gcc -std=c11 -c ./source/*.c
+    - gcc -std=c11 -c ./libstatic.c
     - ar r libstatic.a *.o
-    - gcc -std=c11 -c -fPIC source/*.c
+    - gcc -std=c11 -c -fPIC libdynamic.c
     - gcc -shared -o libdynamic.so *.o
     - gcc -std=c11 -c *.c
     - gcc -o zadanie_2_multithread_proga *.o -L. -ldynamic -lstatic -lpthread -Wl,-rpath,.
