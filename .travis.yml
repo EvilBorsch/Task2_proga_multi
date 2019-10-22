@@ -33,7 +33,7 @@ script:
     - gcc -std=c11 -c ./libstatic.c
     - ar r libstatic.a *.o
     - gcc -std=c11 -c -fPIC libdynamic.c
-    - gcc -shared -o libdynamic.so *.o
+    - gcc -shared -o libdynamic.so libdynamic.o
     - gcc -std=c11 -c *.c
     - gcc -o zadanie_2_multithread_proga *.o -L. -ldynamic -lstatic -lpthread -Wl,-rpath,.
     - ./zadanie_2_multithread_proga
