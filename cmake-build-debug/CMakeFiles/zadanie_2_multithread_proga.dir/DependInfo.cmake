@@ -4,9 +4,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
+  "/Users/dmitrijgulacenkov/CLionProjects/zadanie_2_multithread_proga/libdynamic.c" "/Users/dmitrijgulacenkov/CLionProjects/zadanie_2_multithread_proga/cmake-build-debug/CMakeFiles/zadanie_2_multithread_proga.dir/libdynamic.c.o"
+  "/Users/dmitrijgulacenkov/CLionProjects/zadanie_2_multithread_proga/libstatic.c" "/Users/dmitrijgulacenkov/CLionProjects/zadanie_2_multithread_proga/cmake-build-debug/CMakeFiles/zadanie_2_multithread_proga.dir/libstatic.c.o"
   "/Users/dmitrijgulacenkov/CLionProjects/zadanie_2_multithread_proga/main.c" "/Users/dmitrijgulacenkov/CLionProjects/zadanie_2_multithread_proga/cmake-build-debug/CMakeFiles/zadanie_2_multithread_proga.dir/main.c.o"
-  "/Users/dmitrijgulacenkov/CLionProjects/zadanie_2_multithread_proga/source/libdynamic.c" "/Users/dmitrijgulacenkov/CLionProjects/zadanie_2_multithread_proga/cmake-build-debug/CMakeFiles/zadanie_2_multithread_proga.dir/source/libdynamic.c.o"
-  "/Users/dmitrijgulacenkov/CLionProjects/zadanie_2_multithread_proga/source/libstatic.c" "/Users/dmitrijgulacenkov/CLionProjects/zadanie_2_multithread_proga/cmake-build-debug/CMakeFiles/zadanie_2_multithread_proga.dir/source/libstatic.c.o"
   )
 set(CMAKE_C_COMPILER_ID "Clang")
 

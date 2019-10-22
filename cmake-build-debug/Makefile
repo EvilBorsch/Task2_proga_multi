@@ -39,10 +39,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /Users/dmitrijgulacenkov/Desktop/CLion.app/Contents/bin/cmake/mac/bin/cmake
+CMAKE_COMMAND = "/Users/dmitrijgulacenkov/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/192.6817.32/CLion.app/Contents/bin/cmake/mac/bin/cmake"
 
 # The command to remove a file.
-RM = /Users/dmitrijgulacenkov/Desktop/CLion.app/Contents/bin/cmake/mac/bin/cmake -E remove -f
+RM = "/Users/dmitrijgulacenkov/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/192.6817.32/CLion.app/Contents/bin/cmake/mac/bin/cmake" -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -59,7 +59,7 @@ CMAKE_BINARY_DIR = /Users/dmitrijgulacenkov/CLionProjects/zadanie_2_multithread_
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/Users/dmitrijgulacenkov/Desktop/CLion.app/Contents/bin/cmake/mac/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	"/Users/dmitrijgulacenkov/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/192.6817.32/CLion.app/Contents/bin/cmake/mac/bin/cmake" -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -70,7 +70,7 @@ rebuild_cache/fast: rebuild_cache
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/Users/dmitrijgulacenkov/Desktop/CLion.app/Contents/bin/cmake/mac/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	"/Users/dmitrijgulacenkov/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/192.6817.32/CLion.app/Contents/bin/cmake/mac/bin/cmake" -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -123,6 +123,60 @@ zadanie_2_multithread_proga/fast:
 	$(MAKE) -f CMakeFiles/zadanie_2_multithread_proga.dir/build.make CMakeFiles/zadanie_2_multithread_proga.dir/build
 .PHONY : zadanie_2_multithread_proga/fast
 
+libdynamic.o: libdynamic.c.o
+
+.PHONY : libdynamic.o
+
+# target to build an object file
+libdynamic.c.o:
+	$(MAKE) -f CMakeFiles/zadanie_2_multithread_proga.dir/build.make CMakeFiles/zadanie_2_multithread_proga.dir/libdynamic.c.o
+.PHONY : libdynamic.c.o
+
+libdynamic.i: libdynamic.c.i
+
+.PHONY : libdynamic.i
+
+# target to preprocess a source file
+libdynamic.c.i:
+	$(MAKE) -f CMakeFiles/zadanie_2_multithread_proga.dir/build.make CMakeFiles/zadanie_2_multithread_proga.dir/libdynamic.c.i
+.PHONY : libdynamic.c.i
+
+libdynamic.s: libdynamic.c.s
+
+.PHONY : libdynamic.s
+
+# target to generate assembly for a file
+libdynamic.c.s:
+	$(MAKE) -f CMakeFiles/zadanie_2_multithread_proga.dir/build.make CMakeFiles/zadanie_2_multithread_proga.dir/libdynamic.c.s
+.PHONY : libdynamic.c.s
+
+libstatic.o: libstatic.c.o
+
+.PHONY : libstatic.o
+
+# target to build an object file
+libstatic.c.o:
+	$(MAKE) -f CMakeFiles/zadanie_2_multithread_proga.dir/build.make CMakeFiles/zadanie_2_multithread_proga.dir/libstatic.c.o
+.PHONY : libstatic.c.o
+
+libstatic.i: libstatic.c.i
+
+.PHONY : libstatic.i
+
+# target to preprocess a source file
+libstatic.c.i:
+	$(MAKE) -f CMakeFiles/zadanie_2_multithread_proga.dir/build.make CMakeFiles/zadanie_2_multithread_proga.dir/libstatic.c.i
+.PHONY : libstatic.c.i
+
+libstatic.s: libstatic.c.s
+
+.PHONY : libstatic.s
+
+# target to generate assembly for a file
+libstatic.c.s:
+	$(MAKE) -f CMakeFiles/zadanie_2_multithread_proga.dir/build.make CMakeFiles/zadanie_2_multithread_proga.dir/libstatic.c.s
+.PHONY : libstatic.c.s
+
 main.o: main.c.o
 
 .PHONY : main.o
@@ -150,60 +204,6 @@ main.c.s:
 	$(MAKE) -f CMakeFiles/zadanie_2_multithread_proga.dir/build.make CMakeFiles/zadanie_2_multithread_proga.dir/main.c.s
 .PHONY : main.c.s
 
-source/libdynamic.o: source/libdynamic.c.o
-
-.PHONY : source/libdynamic.o
-
-# target to build an object file
-source/libdynamic.c.o:
-	$(MAKE) -f CMakeFiles/zadanie_2_multithread_proga.dir/build.make CMakeFiles/zadanie_2_multithread_proga.dir/source/libdynamic.c.o
-.PHONY : source/libdynamic.c.o
-
-source/libdynamic.i: source/libdynamic.c.i
-
-.PHONY : source/libdynamic.i
-
-# target to preprocess a source file
-source/libdynamic.c.i:
-	$(MAKE) -f CMakeFiles/zadanie_2_multithread_proga.dir/build.make CMakeFiles/zadanie_2_multithread_proga.dir/source/libdynamic.c.i
-.PHONY : source/libdynamic.c.i
-
-source/libdynamic.s: source/libdynamic.c.s
-
-.PHONY : source/libdynamic.s
-
-# target to generate assembly for a file
-source/libdynamic.c.s:
-	$(MAKE) -f CMakeFiles/zadanie_2_multithread_proga.dir/build.make CMakeFiles/zadanie_2_multithread_proga.dir/source/libdynamic.c.s
-.PHONY : source/libdynamic.c.s
-
-source/libstatic.o: source/libstatic.c.o
-
-.PHONY : source/libstatic.o
-
-# target to build an object file
-source/libstatic.c.o:
-	$(MAKE) -f CMakeFiles/zadanie_2_multithread_proga.dir/build.make CMakeFiles/zadanie_2_multithread_proga.dir/source/libstatic.c.o
-.PHONY : source/libstatic.c.o
-
-source/libstatic.i: source/libstatic.c.i
-
-.PHONY : source/libstatic.i
-
-# target to preprocess a source file
-source/libstatic.c.i:
-	$(MAKE) -f CMakeFiles/zadanie_2_multithread_proga.dir/build.make CMakeFiles/zadanie_2_multithread_proga.dir/source/libstatic.c.i
-.PHONY : source/libstatic.c.i
-
-source/libstatic.s: source/libstatic.c.s
-
-.PHONY : source/libstatic.s
-
-# target to generate assembly for a file
-source/libstatic.c.s:
-	$(MAKE) -f CMakeFiles/zadanie_2_multithread_proga.dir/build.make CMakeFiles/zadanie_2_multithread_proga.dir/source/libstatic.c.s
-.PHONY : source/libstatic.c.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -213,15 +213,15 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... zadanie_2_multithread_proga"
+	@echo "... libdynamic.o"
+	@echo "... libdynamic.i"
+	@echo "... libdynamic.s"
+	@echo "... libstatic.o"
+	@echo "... libstatic.i"
+	@echo "... libstatic.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... source/libdynamic.o"
-	@echo "... source/libdynamic.i"
-	@echo "... source/libdynamic.s"
-	@echo "... source/libstatic.o"
-	@echo "... source/libstatic.i"
-	@echo "... source/libstatic.s"
 .PHONY : help
 
 
