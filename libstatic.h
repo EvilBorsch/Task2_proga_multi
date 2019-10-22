@@ -1,4 +1,4 @@
-
+#include <stdio.h>
 
 char **init_matrix_from_keyboard(size_t n);
 
