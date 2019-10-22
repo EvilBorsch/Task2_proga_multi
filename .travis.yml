@@ -31,7 +31,7 @@ matrix:
 script:
     # скрипт сборки и тестирования проекта:
     - gcc -std=c11 -c ./libstatic.c
-    - ar r libstatic.a *.o
+    - ar r libstatic.a libstatic.o
     - gcc -std=c11 -c -fPIC libdynamic.c
     - gcc -shared -o libdynamic.so libdynamic.o
     - gcc -std=c11 -c *.c
