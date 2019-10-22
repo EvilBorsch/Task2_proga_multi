@@ -1,8 +1,9 @@
 // Copyright 2019 EvilBorsch
-#include <assert.h>
 #include "libdynamic.h"
 #include <pthread.h>
+#include <stdint.h>
 #include <stdio.h>
+
 #include <stdlib.h>
 
 #define MEMORY_ERROR 28;
@@ -35,7 +36,7 @@ void *summ_last_elements(void *stroki) {
   return NULL;
 }
 
-long int find_sigma_diagonals(char **matrix1, size_t N) {
+int16_t find_sigma_diagonals(char **matrix1, size_t N) {
   if (matrix1 == NULL || N < 0) {
     perror("MEMMORY_ERROR");
     return MEMORY_ERROR;
