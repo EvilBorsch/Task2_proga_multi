@@ -42,8 +42,9 @@ script:
     - gcc -std=c11 -c -fPIC libdynamic.c
     - gcc -shared -o libdynamic.so libdynamic.o
     - gcc -std=c11 -c *.c
-    - gcc -o zadanie_2_multithread_proga *.o -L. -ldynamic -lstatic -lpthread -Wl,-rpath,.
+    - gcc -o zadanie_2_multithread_proga *.o -fprofile-arcs -ftest-coverage -g -L. -ldynamic -lstatic -lpthread -Wl,-rpath,.
     - ./zadanie_2_multithread_proga
+    - gcov *.c
     - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then valgrind --leak-check=full --show-leak-kinds=all ./zadanie_2_multithread_proga ; fi
     - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then cppcheck --enable=warning,performance,information,style *.c *.h ; fi
     - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then cpplint --filter=-readability,-build *.c ; fi
