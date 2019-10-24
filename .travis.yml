@@ -41,8 +41,8 @@ script:
     - ar r libstatic.a libstatic.o
     - gcc -std=c11 -c -fPIC libdynamic.c
     - gcc -shared -o libdynamic.so libdynamic.o
-    - gcc -std=c11 --coverage -c *.c
-    - gcc -o zadanie_2_multithread_proga *.o -fprofile-arcs -ftest-coverage -g -L. -ldynamic -lstatic -lpthread -Wl,-rpath,.
+    - gcc -std=c11 -c *.c
+    - gcc -o zadanie_2_multithread_proga *.o -fprofile-arcs -ftest-coverage -g -L. -ldynamic -lstatic -Wl,-rpath,.
     - ./zadanie_2_multithread_proga
     - gcov *.c
     - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then valgrind --leak-check=full --show-leak-kinds=all ./zadanie_2_multithread_proga ; fi
