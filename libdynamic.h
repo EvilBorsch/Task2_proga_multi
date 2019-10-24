@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdint.h>
 
-void *summ_last_elements(void *stroki);
 
-int16_t find_sigma_diagonals(char **matrix1, size_t N);
+int process_summ_last_matrix_elements(int started_str,char** matrix,int N,int chisyad);
+
+int summa_diagonali(int chisyad,char** matrix,int N);
