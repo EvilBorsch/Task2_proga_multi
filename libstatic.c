@@ -58,6 +58,10 @@ char **init_with_num(const size_t n, const char num) {
 }
 
 void del_mat(char **mat, const size_t n) {
+  if (mat == NULL) {
+    perror("mat is null");
+    return;
+  }
   for (size_t i = 0; i < n; i++) {
     free(mat[i]);
   }
