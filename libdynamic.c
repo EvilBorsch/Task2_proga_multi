@@ -1,89 +1,55 @@
 // Copyright 2019 EvilBorsch
 #include "libdynamic.h"
-#include <pthread.h>
-#include <stdint.h>
 #include <stdio.h>
-
 #include <stdlib.h>
+#include <unistd.h>
 
-#define MEMORY_ERROR 28;
-
-typedef struct {
-  int rowSize;
-  int started_str;
-  int num_of_strs;
-  char **matrix;
-} pthrData;
-
-static int16_t result = 0;
-
-void *summ_last_elements(void *stroki) {
-  pthrData *data = (pthrData *)stroki;
-  if (data == NULL) {
-    free(data);
-    perror("Memmory error");
-    return NULL;
+int process_summ_last_matrix_elements(int started_str, char **matrix, int N,
+                                      int chisyad) {
+  int result = 0;
+  int kolvostrok = N / chisyad;
+  if (started_str == (chisyad - 1) * kolvostrok) kolvostrok = N - started_str;
+  for (int i = started_str; i < started_str + kolvostrok; i++) {
+    result += matrix[i][i];
   }
-  int k = (data->rowSize) - 1;
-  if (k < 0) k = 0;
-
-  for (int i = data->started_str; i < data->started_str + data->num_of_strs;
-       i++) {
-    result += data->matrix[i][k];
-    ++k;
-  }
-
-  return NULL;
+  return result;
 }
 
-int16_t find_sigma_diagonals(char **matrix1, size_t N) {
-  if (matrix1 == NULL || N < 0) {
-    perror("MEMMORY_ERROR");
-    return MEMORY_ERROR;
-  }
-  int num_threads = 4;
+int summa_diagonali(int chisyad, char **matrix, int N) {
+  int status;
+  int okonch_result = 0;
+  int previous_started_str = 0;
+  for (int i = 0; i < chisyad; i++) {
+    int fd[2];
+    pipe(fd);
+    int buff[1];
+    buff[0] = previous_started_str;
+    previous_started_str = previous_started_str + N / chisyad;
 
-  if (N < 4 && N > 1) {
-    num_threads = 2;
-  }
+    write(fd[1], buff,
+          sizeof(buff) + 1);  //передаем в процесс строку с которой начинаем
+    // подсчет элементов на диагонале для данного процесса
+    pid_t pid = fork();
+    if (-1 == pid) {
+      perror("Process Eroor");
+      break;
+    } else if (0 == pid) {
+      int ans[1];
+      int data[1];
+      read(fd[0], data, sizeof(data) + 1);  //Берем строку с которой считаем
+      int process_started_str = data[0];
+      ans[0] = process_summ_last_matrix_elements(process_started_str, matrix, N,
+                                                 chisyad);
 
-  if (N == 1) {
-    return matrix1[0][0];
+      write(fd[1], ans,
+            sizeof(ans) + 1);  //Кидаем в главный процесс посчитанную часть
+      exit(0);
+    }
+    waitpid(pid, &status, 0);
+    int buf[1];
+    read(fd[0], buf, sizeof(buf));  //получаем из процесса посчитанную часть
+    // printf("Received %d\n", buf[0]);
+    okonch_result = okonch_result + buf[0];  //суммируем посчитанные части
   }
-
-  pthread_t *threads = (pthread_t *)malloc(num_threads * sizeof(pthread_t));
-  if (threads == NULL) {
-    perror("MEMMORY ERROR");
-    free(threads);
-    return MEMORY_ERROR;
-  }
-  pthrData *threadData = (pthrData *)malloc(num_threads * sizeof(pthrData));
-  if (threadData == NULL) {
-    perror("MEMMORY ERROR");
-    free(threadData);
-    return MEMORY_ERROR;
-  }
-
-  int previous_started_string = 0;
-  for (int i = 0; i < num_threads - 1; i++) {
-    threadData[i].rowSize = i;
-    threadData[i].started_str = previous_started_string;
-    threadData[i].matrix = matrix1;
-    threadData[i].num_of_strs = N / num_threads;
-    previous_started_string += N / num_threads;
-    pthread_create(&(threads[i]), NULL, summ_last_elements, &threadData[i]);
-  }
-  threadData[num_threads - 1].rowSize = num_threads;
-  threadData[num_threads - 1].started_str = previous_started_string;
-  threadData[num_threads - 1].num_of_strs = N - previous_started_string;
-  threadData[num_threads - 1].matrix = matrix1;
-  pthread_create(&(threads[num_threads - 1]), NULL, summ_last_elements,
-                 &threadData[num_threads - 1]);
-
-  for (int i = 0; i < num_threads; i++) pthread_join(threads[i], NULL);
-  free(threads);
-  free(threadData);
-  int16_t answer = result;
-  result = 0;
-  return answer;
+  return okonch_result;
 }
