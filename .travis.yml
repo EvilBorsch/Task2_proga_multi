@@ -37,11 +37,11 @@ matrix:
 
 script:
     # скрипт сборки и тестирования проекта:
-    - gcc -std=c11 -c ./libstatic.c
+    - gcc -std=c11 -Wall -Wpedantic -c ./libstatic.c
     - ar r libstatic.a libstatic.o
-    - gcc -std=c11 -c -fPIC libdynamic.c
+    - gcc -std=c11 -Wall -Wpedantic -c -fPIC libdynamic.c
     - gcc -shared -o libdynamic.so libdynamic.o
-    - gcc -std=c11 --coverage -c *.c
+    - gcc -std=c11 -Wall -Wpedantic --coverage -c *.c
     - gcc -o zadanie_2_multithread_proga *.o -fprofile-arcs -ftest-coverage -g -L. -ldynamic -lstatic -Wl,-rpath,.
     - ./zadanie_2_multithread_proga
     - gcov *.c
