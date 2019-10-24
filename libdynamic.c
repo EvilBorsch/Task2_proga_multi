@@ -41,7 +41,7 @@ int summa_diagonali(int chisyad, char **matrix, int N) {
       int process_started_str = data[0];
       ans[0] = process_summ_last_matrix_elements(process_started_str, matrix, N,
                                                  chisyad);
-
+      close(fd[0]);
       write(fd[1], ans,
             sizeof(ans) + 1);  //Кидаем в главный процесс посчитанную часть
       exit(0);
@@ -51,6 +51,7 @@ int summa_diagonali(int chisyad, char **matrix, int N) {
     read(fd[0], buf, sizeof(buf));  //получаем из процесса посчитанную часть
     // printf("Received %d\n", buf[0]);
     okonch_result = okonch_result + buf[0];  //суммируем посчитанные части
+    close(fd[1]);
   }
   return okonch_result;
 }
