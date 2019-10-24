@@ -22,8 +22,9 @@ char **init_matrix_from_keyboard(const size_t n) {
 
     for (size_t j = 0; j <= k; j++) {
       char chis;
-      scanf("%d", &chis);
+      scanf("%c", &chis);
       if (chis < 0 || chis > 3) {
+        free(mat[i]);
         perror("BAD NUM");
         return NULL;
       }
@@ -64,6 +65,10 @@ void del_mat(char **mat, const size_t n) {
 }
 
 int get_sigma_diagonal(char **mat, const size_t n) {
+  if (mat == NULL) {
+    perror("Mat is null");
+    return -1;
+  }
   size_t sigma = 0;
   for (size_t i = 0; i < n; i++) {
     sigma += (mat[i][i]);
