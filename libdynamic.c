@@ -3,10 +3,14 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-#define PROCESS_ERROR 15
+#define PROCESS_ERROR 11
+#define EMPTYMATRIX 15
 
 int process_summ_last_matrix_elements(int started_str, char **matrix, int N,
                                       int chisyad) {
+  if (matrix == NULL) {
+    exit(EMPTYMATRIX);
+  }
   int result = 0;
   int kolvostrok = N / chisyad;
   if (started_str == (chisyad - 1) * kolvostrok) kolvostrok = N - started_str;
@@ -18,6 +22,9 @@ int process_summ_last_matrix_elements(int started_str, char **matrix, int N,
 }
 
 int summa_diagonali(int chisyad, char **matrix, int N) {
+  if (matrix == NULL) {
+    exit(EMPTYMATRIX);
+  }
   int status;
   int okonch_result = 0;
 
@@ -44,11 +51,12 @@ int summa_diagonali(int chisyad, char **matrix, int N) {
   }
 
   waitpid(pid, &status, 0);
-  int buf[chisyad];
+  int *buf = malloc(sizeof(int) * chisyad);
   read(fd[0], buf, sizeof(buf) * chisyad);
   for (int i = 0; i < chisyad; i++) {
     okonch_result = okonch_result + buf[i];
   }
   close(fd[1]);
+  free(buf);
   return okonch_result;
 }
