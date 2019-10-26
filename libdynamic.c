@@ -14,8 +14,6 @@ int process_summ_last_matrix_elements(int started_str, char** matrix, int N,
   if (started_str == (chisyad - 1) * kolvostrok) {
     kolvostrok = N - started_str;
   }
-  printf("start: %d", started_str);
-  printf("kolvo: %d\n", kolvostrok);
   for (int i = started_str; i < started_str + kolvostrok; i++) {
     result += matrix[i][i];
   }
