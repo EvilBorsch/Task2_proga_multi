@@ -23,7 +23,7 @@ int process_summ_last_matrix_elements(int started_str, char** matrix, int N,
 }
 
 int summa_diagonali(int core_count, char** matrix, const int N) {
-  int pid[core_count];
+  int* pid = malloc((core_count + 1) * sizeof(int));
   int status = 0;
   int fd[2];
   pipe(fd);
@@ -63,5 +63,6 @@ int summa_diagonali(int core_count, char** matrix, const int N) {
   }
 
   free(buf);
+  free(pid);
   return answer;
 }
